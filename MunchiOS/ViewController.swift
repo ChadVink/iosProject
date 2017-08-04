@@ -1,18 +1,36 @@
 //
 //  ViewController.swift
-//  MunchiOS
+//  TinderSwipeCardsSwift
 //
-//  Created by Eli Simmonds on 8/4/17.
-//  Copyright © 2017 Eli Simmonds. All rights reserved.
+//  Created by Gao Chao on 4/30/15.
+//  Copyright (c) 2015 gcweb. All rights reserved.
 //
 
 import UIKit
+import CoreLocation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CLLocationManagerDelegate {
+    let locationManager = CLLocationManager()
 
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        locationManager.requestAlwaysAuthorization()    // ask if we can use Location services all the time
+        // For use in foreground
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+//        print(locationManager.location?.coordinate.latitude ?? 66.66)
+        
+        let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
+        self.view.addSubview(draggableBackground)
     }
 
     override func didReceiveMemoryWarning() {

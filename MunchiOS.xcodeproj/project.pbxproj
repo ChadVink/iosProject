@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		824E98AF1F351ACD00251320 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98AE1F351ACD00251320 /* AppDelegate.swift */; };
-		824E98B11F351ACD00251320 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98B01F351ACD00251320 /* ViewController.swift */; };
 		824E98B41F351ACD00251320 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 824E98B21F351ACD00251320 /* Main.storyboard */; };
 		824E98B71F351ACD00251320 /* MunchiOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 824E98B51F351ACD00251320 /* MunchiOS.xcdatamodeld */; };
 		824E98B91F351ACD00251320 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824E98B81F351ACD00251320 /* Assets.xcassets */; };
 		824E98BC1F351ACD00251320 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 824E98BA1F351ACD00251320 /* LaunchScreen.storyboard */; };
 		824E98C71F351ACD00251320 /* MunchiOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98C61F351ACD00251320 /* MunchiOSTests.swift */; };
 		824E98D21F351ACD00251320 /* MunchiOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98D11F351ACD00251320 /* MunchiOSUITests.swift */; };
+		824E98EE1F351BF600251320 /* DraggableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98E91F351BF600251320 /* DraggableView.swift */; };
+		824E98EF1F351BF600251320 /* DraggableViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98EA1F351BF600251320 /* DraggableViewBackground.swift */; };
+		824E98F01F351BF600251320 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824E98EB1F351BF600251320 /* Images.xcassets */; };
+		824E98F11F351BF600251320 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98EC1F351BF600251320 /* OverlayView.swift */; };
+		824E98F21F351BF600251320 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98ED1F351BF600251320 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +41,6 @@
 /* Begin PBXFileReference section */
 		824E98AB1F351ACD00251320 /* MunchiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MunchiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		824E98AE1F351ACD00251320 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		824E98B01F351ACD00251320 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		824E98B31F351ACD00251320 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		824E98B61F351ACD00251320 /* MunchiOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MunchiOS.xcdatamodel; sourceTree = "<group>"; };
 		824E98B81F351ACD00251320 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +52,11 @@
 		824E98CD1F351ACD00251320 /* MunchiOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MunchiOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		824E98D11F351ACD00251320 /* MunchiOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MunchiOSUITests.swift; sourceTree = "<group>"; };
 		824E98D31F351ACD00251320 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		824E98E91F351BF600251320 /* DraggableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableView.swift; sourceTree = "<group>"; };
+		824E98EA1F351BF600251320 /* DraggableViewBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DraggableViewBackground.swift; sourceTree = "<group>"; };
+		824E98EB1F351BF600251320 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		824E98EC1F351BF600251320 /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
+		824E98ED1F351BF600251320 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				824E98AE1F351ACD00251320 /* AppDelegate.swift */,
-				824E98B01F351ACD00251320 /* ViewController.swift */,
+				824E98E91F351BF600251320 /* DraggableView.swift */,
+				824E98EA1F351BF600251320 /* DraggableViewBackground.swift */,
+				824E98EB1F351BF600251320 /* Images.xcassets */,
+				824E98EC1F351BF600251320 /* OverlayView.swift */,
+				824E98ED1F351BF600251320 /* ViewController.swift */,
 				824E98B21F351ACD00251320 /* Main.storyboard */,
 				824E98B81F351ACD00251320 /* Assets.xcassets */,
 				824E98BA1F351ACD00251320 /* LaunchScreen.storyboard */,
@@ -239,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				824E98BC1F351ACD00251320 /* LaunchScreen.storyboard in Resources */,
+				824E98F01F351BF600251320 /* Images.xcassets in Resources */,
 				824E98B91F351ACD00251320 /* Assets.xcassets in Resources */,
 				824E98B41F351ACD00251320 /* Main.storyboard in Resources */,
 			);
@@ -265,9 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				824E98B11F351ACD00251320 /* ViewController.swift in Sources */,
+				824E98F21F351BF600251320 /* ViewController.swift in Sources */,
+				824E98EF1F351BF600251320 /* DraggableViewBackground.swift in Sources */,
+				824E98EE1F351BF600251320 /* DraggableView.swift in Sources */,
 				824E98B71F351ACD00251320 /* MunchiOS.xcdatamodeld in Sources */,
 				824E98AF1F351ACD00251320 /* AppDelegate.swift in Sources */,
+				824E98F11F351BF600251320 /* OverlayView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
