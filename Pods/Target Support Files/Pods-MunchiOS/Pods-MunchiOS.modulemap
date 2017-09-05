@@ -1,0 +1,6 @@
+framework module Pods_MunchiOS {
+  umbrella header "Pods-MunchiOS-umbrella.h"
+
+  export *
+  module * { export * }
+}
