@@ -19,6 +19,7 @@
 		824E98F01F351BF600251320 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 824E98EB1F351BF600251320 /* Images.xcassets */; };
 		824E98F11F351BF600251320 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98EC1F351BF600251320 /* OverlayView.swift */; };
 		824E98F21F351BF600251320 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E98ED1F351BF600251320 /* ViewController.swift */; };
+		824E98F61F3520C900251320 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 824E98F51F3520C900251320 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		824E98EB1F351BF600251320 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		824E98EC1F351BF600251320 /* OverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		824E98ED1F351BF600251320 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		824E98F51F3520C900251320 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				824E98F61F3520C900251320 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +94,7 @@
 				824E98C51F351ACD00251320 /* MunchiOSTests */,
 				824E98D01F351ACD00251320 /* MunchiOSUITests */,
 				824E98AC1F351ACD00251320 /* Products */,
+				824E98F41F3520C900251320 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -107,11 +111,9 @@
 		824E98AD1F351ACD00251320 /* MunchiOS */ = {
 			isa = PBXGroup;
 			children = (
+				824E98F31F351FE100251320 /* DraggableView */,
 				824E98AE1F351ACD00251320 /* AppDelegate.swift */,
-				824E98E91F351BF600251320 /* DraggableView.swift */,
-				824E98EA1F351BF600251320 /* DraggableViewBackground.swift */,
 				824E98EB1F351BF600251320 /* Images.xcassets */,
-				824E98EC1F351BF600251320 /* OverlayView.swift */,
 				824E98ED1F351BF600251320 /* ViewController.swift */,
 				824E98B21F351ACD00251320 /* Main.storyboard */,
 				824E98B81F351ACD00251320 /* Assets.xcassets */,
@@ -138,6 +140,24 @@
 				824E98D31F351ACD00251320 /* Info.plist */,
 			);
 			path = MunchiOSUITests;
+			sourceTree = "<group>";
+		};
+		824E98F31F351FE100251320 /* DraggableView */ = {
+			isa = PBXGroup;
+			children = (
+				824E98E91F351BF600251320 /* DraggableView.swift */,
+				824E98EA1F351BF600251320 /* DraggableViewBackground.swift */,
+				824E98EC1F351BF600251320 /* OverlayView.swift */,
+			);
+			name = DraggableView;
+			sourceTree = "<group>";
+		};
+		824E98F41F3520C900251320 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				824E98F51F3520C900251320 /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -536,6 +556,7 @@
 				824E98D81F351ACE00251320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		824E98D91F351ACE00251320 /* Build configuration list for PBXNativeTarget "MunchiOSTests" */ = {
 			isa = XCConfigurationList;
@@ -544,6 +565,7 @@
 				824E98DB1F351ACE00251320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		824E98DC1F351ACE00251320 /* Build configuration list for PBXNativeTarget "MunchiOSUITests" */ = {
 			isa = XCConfigurationList;
@@ -552,6 +574,7 @@
 				824E98DE1F351ACE00251320 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
