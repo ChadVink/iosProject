@@ -3,7 +3,7 @@
 //  Yelp
 //
 //  Created by Eli Simmonds on 9/05/17.
-//  Copyright (c) 2014 Eli Simmonds. All rights reserved.
+//  Copyright (c) 2017 Eli Simmonds. All rights reserved.
 //
 
 import UIKit

@@ -25,6 +25,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var messageButton: UIButton!
     var checkButton: UIButton!
     var xButton: UIButton!
+    
+    var businesses: [YelpCard]!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -35,11 +37,25 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         super.layoutSubviews()
         self.setupView()
         
-        exampleCardLabels = ["first", "second", "third", "fourth", "last"]
+        YelpCard.searchWithTerm(term: "Thai", completion: { (businesses: [YelpCard]?, error: Error?) -> Void in
+            self.exampleCardLabels = []
+            self.businesses = businesses
+            if let businesses = businesses {
+                for business in businesses {
+                    print(business.name!)
+                    print(business.address!)
+                    self.exampleCardLabels.append(business.name!)
+                }
+                self.loadCards()
+            }
+            
+        }
+        )
+        
+//        exampleCardLabels = ["first", "second", "third", "fourth", "last"]
         allCards = []
         loadedCards = []
         cardsLoadedIndex = 0
-        self.loadCards()
     }
 
     func setupView() -> Void {
