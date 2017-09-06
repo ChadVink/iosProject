@@ -16,6 +16,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     
+    var businesses: [YelpCard]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -27,6 +29,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
         }
+        
+        YelpCard.searchWithTerm(term: "Thai", completion: { (businesses: [YelpCard]?, error: Error?) -> Void in
+            
+            self.businesses = businesses
+            if let businesses = businesses {
+                for business in businesses {
+                    print(business.name!)
+                    print(business.address!)
+                }
+            }
+            
+        }
+        )
 //        print(locationManager.location?.coordinate.latitude ?? 66.66)
         
         let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
