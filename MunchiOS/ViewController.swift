@@ -12,6 +12,7 @@ import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
+    var draggableBackground: DraggableViewBackground?
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
@@ -30,13 +31,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
 //        print(locationManager.location?.coordinate.latitude ?? 66.66)
         
-        let draggableBackground: DraggableViewBackground = DraggableViewBackground(frame: self.view.frame)
-        self.view.addSubview(draggableBackground)
+        draggableBackground = DraggableViewBackground(frame: self.view.frame)
+        draggableBackground?.location = locationManager
+        self.view.addSubview(draggableBackground!)
+        draggableBackground?.parentController = self
+        self.draggableBackground?.settingsButton.addTarget(self, action: #selector(self.settingsClicked), for: UIControlEvents.touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func settingsClicked() -> Void {
+        print("Button Clicked.....")
+        //SettingsViewController
+        
+        let loginPageView =  self.storyboard?.instantiateViewController(withIdentifier: "SettingsViewController") as! SettingsView
+        self.present(loginPageView, animated: true, completion: nil)
     }
 
 

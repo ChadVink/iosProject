@@ -90,6 +90,10 @@ class YelpCard: NSObject {
         _ = YelpClient.sharedInstance.searchWithTerm(term, completion: completion)
     }
     
+    class func searchWithTermAndLocation(term: String, location: String, completion: @escaping ([YelpCard]?, Error?) -> Void) {
+        _ = YelpClient.sharedInstance.searchWithTerm(term, completion: completion)
+    }
+    
     class func searchWithTerm(term: String, sort: YelpSortMode?, categories: [String]?, deals: Bool?, completion: @escaping ([YelpCard]?, Error?) -> Void) -> Void {
         _ = YelpClient.sharedInstance.searchWithTerm(term, sort: sort, categories: categories, deals: deals, completion: completion)
     }

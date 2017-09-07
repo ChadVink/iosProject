@@ -14,6 +14,8 @@ import YelpAPI
 class DraggableViewBackground: UIView, DraggableViewDelegate {
     var exampleCardLabels: [String]!
     var allCards: [DraggableView]!
+    var location: CLLocationManager!
+    var parentController: UIViewController!
 
     let MAX_BUFFER_SIZE = 2
     let CARD_HEIGHT: CGFloat = (UIScreen.main.bounds.height) * 0.75
@@ -25,6 +27,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var messageButton: UIButton!
     var checkButton: UIButton!
     var xButton: UIButton!
+    var settingsButton: UIButton!
     
     var businesses: [YelpCard]!
 
@@ -36,6 +39,8 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         super.init(frame: frame)
         super.layoutSubviews()
         self.setupView()
+        
+//        let str_location = String((location.location?.coordinate.latitude)!) + String((location.location?.coordinate.longitude)!)
         
         YelpCard.searchWithTerm(term: "Thai", completion: { (businesses: [YelpCard]?, error: Error?) -> Void in
             self.exampleCardLabels = []
@@ -68,9 +73,13 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         checkButton = UIButton(frame: CGRect(x: self.frame.size.width/2 + CARD_WIDTH/2 - 85, y: self.frame.size.height/2 + CARD_HEIGHT/2 + 10, width: 59, height: 59))
         checkButton.setImage(UIImage(named: "checkButton"), for: UIControlState())
         checkButton.addTarget(self, action: #selector(DraggableViewBackground.swipeRight), for: UIControlEvents.touchUpInside)
+        
+        settingsButton = UIButton(frame: CGRect(x: 5, y: 5, width: 59, height: 59))
+        settingsButton.setImage(UIImage(named: "checkButton"), for: UIControlState())
 
         self.addSubview(xButton)
         self.addSubview(checkButton)
+        self.addSubview(settingsButton)
     }
 
     func createDraggableViewWithDataAtIndex(_ index: NSInteger) -> DraggableView {
