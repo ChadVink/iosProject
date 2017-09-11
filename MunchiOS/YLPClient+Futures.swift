@@ -6,7 +6,13 @@
 import YelpAPI
 import BrightFutures
 
+let appId = "hUBKPcqKBNG-Oxk11bhMGg"
+let appSecret = "924ubdnMcznJ7Ddi8pHSoetIpj3flv1A4svp8u9U5oD9Yz48MbxagsNLAuePHxet"
+
 public extension YLPClient {
+    
+    static let sharedInstance = YLPClient.authorize(withAppId: appId, secret: appSecret)
+    
     static func authorize(withAppId appId: String, secret: String) -> Future<YLPClient, NSError> {
         return makeFutureFromCompletionHandler { completionHandler in
             YLPClient.authorize(withAppId: appId, secret: secret, completionHandler: completionHandler)

@@ -9,10 +9,12 @@
 import UIKit
 import MapKit
 import CoreLocation
+import YelpAPI
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var draggableBackground: DraggableViewBackground?
+    
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
@@ -36,6 +38,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         self.view.addSubview(draggableBackground!)
         draggableBackground?.parentController = self
         self.draggableBackground?.settingsButton.addTarget(self, action: #selector(self.settingsClicked), for: UIControlEvents.touchUpInside)
+
+        // TODO: Replace this query with somthing dynamic
+        let query = YLPQuery(location: "San Francisco, CA")
+        query.term = "lunch"
+        query.limit = 10
+        
+        YLPClient.sharedInstance.flatMap { client in
+            client.search(withQuery: query)
+        }.onSuccess { search in
+            self.draggableBackground?.appendCards(cards: search.businesses)
+        }.onFailure { error in
+            print("Search errored: \(error)")
+        }
+        
+        
     }
 
     override func didReceiveMemoryWarning() {

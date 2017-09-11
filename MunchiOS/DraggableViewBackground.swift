@@ -12,7 +12,7 @@ import CoreLocation
 import YelpAPI
 
 class DraggableViewBackground: UIView, DraggableViewDelegate {
-    var exampleCardLabels: [String]!
+    var exampleCardLabels: [YLPBusiness]!
     var allCards: [DraggableView]!
     var location: CLLocationManager!
     var parentController: UIViewController!
@@ -29,7 +29,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
     var xButton: UIButton!
     var settingsButton: UIButton!
     
-    var businesses: [YelpCard]!
+    var businesses: [YLPBusiness]!
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -41,27 +41,36 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
         self.setupView()
         
 //        let str_location = String((location.location?.coordinate.latitude)!) + String((location.location?.coordinate.longitude)!)
-        
-        YelpCard.searchWithTerm(term: "Thai", completion: { (businesses: [YelpCard]?, error: Error?) -> Void in
-            self.exampleCardLabels = []
-            self.businesses = businesses
-            if let businesses = businesses {
-                for business in businesses {
-                    print(business.name!)
-                    print(business.address!)
-                    self.exampleCardLabels.append(business.name!)
-                }
-                self.loadCards()
-            }
-            
-        }
-        )
-        
-//        exampleCardLabels = ["first", "second", "third", "fourth", "last"]
+
+        exampleCardLabels = []
         allCards = []
         loadedCards = []
         cardsLoadedIndex = 0
     }
+    
+    func appendCards( cards: [YLPBusiness]? ) {
+        self.businesses = cards
+        if let businesses = cards {
+            for business in businesses {
+                print(business.name)
+                print(business.location.address)
+                self.exampleCardLabels.append(business)
+            }
+            self.loadCards()
+        }
+
+    }
+    
+//    func appendCardNames( names: [String] ) {
+//        self.exampleCardLabels = []
+////        self.businesses = businesses
+//        for name in names {
+//            print(name)
+////            print(business.address!)
+//            self.exampleCardLabels.append(name)
+//        }
+//        self.loadCards()
+//    }
 
     func setupView() -> Void {
         self.backgroundColor = UIColor(red: 0.92, green: 0.93, blue: 0.95, alpha: 1)
@@ -84,7 +93,7 @@ class DraggableViewBackground: UIView, DraggableViewDelegate {
 
     func createDraggableViewWithDataAtIndex(_ index: NSInteger) -> DraggableView {
         let draggableView = DraggableView(frame: CGRect(x: (self.frame.size.width - CARD_WIDTH)/2, y: (self.frame.size.height - CARD_HEIGHT)/2, width: CARD_WIDTH, height: CARD_HEIGHT))
-        draggableView.information.text = exampleCardLabels[index]
+        draggableView.information.text = exampleCardLabels[index].name
         draggableView.delegate = self
         return draggableView
     }
