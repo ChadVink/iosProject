@@ -41,7 +41,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
 
         // TODO: Replace this query with somthing dynamic
         let query = YLPQuery(location: "San Francisco, CA")
-        query.term = "lunch"
+        query.term = "Dinner"
         query.limit = 10
         
         YLPClient.sharedInstance.flatMap { client in
